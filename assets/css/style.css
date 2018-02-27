@@ -1,0 +1,31 @@
+.title {
+    background-color: orangered;
+    margin: 10px;
+    padding: 5px;
+    width: 40%;
+}
+
+.instructions {
+    background-color: peachpuff;
+    width: 40%;
+}
+
+#computerRandom {
+    background-color: olivedrab;
+    padding: 50px;
+    margin: 10px;
+    font-size: 25px;
+}
+
+#scoreboard {
+    background-color: orchid;
+    padding: 5px;
+    margin: 5px;
+    
+}
+
+#YourScoreBox {
+    background-color: teal;
+    margin: 10PX;
+    padding: 10px;
+}
