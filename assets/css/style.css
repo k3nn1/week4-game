@@ -1,3 +1,8 @@
+body {
+    background-size: 100%;
+}
+
+
 .title {
     background-color: orangered;
     margin: 10px;
@@ -12,15 +17,16 @@
 
 #computerRandom {
     background-color: olivedrab;
-    padding: 50px;
+    padding: 30px;
     margin: 10px;
-    font-size: 25px;
+    font-size: 40px;
+    text-align: center;
 }
 
 #scoreboard {
     background-color: orchid;
     padding: 5px;
-    margin: 5px;
+    margin: 10px;
     
 }
 

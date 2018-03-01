@@ -10,8 +10,17 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        @media screen and (max-width: 700px) {
+            body {
+                background-image: url("assets/images/magiclamp.png");
+            }
+        }
+        
+    </style>
 </head>
-<body background = "assets/images/crystalBG.png">
+<body background = "assets/images/canyonland.jpg">
 
     <div class = "container">
         <div class = "row">
@@ -23,12 +32,12 @@
 
     <div class = "container">
         <div = "row">
-            <div class="col-md-8 instructions">
+            <div class="col-md-8 col-sm-12 col-xs-12 instructions">
                 <p>You will be given a random number at the start of the game.</p>
-                <p>There are four crystals below. By clocking on a crstal you will add a specifi amount of points to your total score.</p>
-                <p>You will win the game by matching your total score to random number. You lose the game if your total score goes above the random number.</p>
+                <p>There are four crystals below. By clocking on a crystal you will add a specific amount of points to your total score.</p>
+                <p>You will win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
                 <p>The value of each crystal is hidden from you until you click on it. Each Crystal number is given a random number between 1-12.</p>
-                <p>Each time when the game starts the game will change the values of each crystal.</p>
+                <p>Each time the game restarts, the value changes for each crystal.</p>
             </div>
         </div>
     </div>
@@ -38,8 +47,8 @@
             <div class = "col-lg-3 col-md-3" id = "computerRandom">HI</div>
             <div class = "col-lg-3 col-md-3" id = "scoreboard">
                 <h4 id="status">Status! </h4>
-                <h4 id="wins">Wins: </h4>
-                <h4 id="loss">Losses: </h4>
+                <h4>Wins: <span id="scoreW"> </span></h4>
+                <h4>Losses: <span id="scoreL"></span></h4>
             </div>
         </div>
     </div>

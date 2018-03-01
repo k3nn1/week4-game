@@ -2,15 +2,15 @@
 $(document).ready(function() {
 
     // Variables I need //
-    var Wins = 0;
-    var Losses = 0;
+    var wins = 0;
+    var losses = 0;
     var yourTotal = 0;
     var computerRandom = Math.floor(Math.random()* 101 + 19);
     console.log("computer Random " + computerRandom);
 
     // Displaying Wins, Losses, and Computer Random number on screen
-    $("#wins").append(Wins);
-    $("#loss").append(Losses)
+    $("#scoreW").append(wins);
+    $("#scoreL").append(losses)
     $("#computerRandom").text(computerRandom);
     $("#score").text(yourTotal);
 
@@ -22,28 +22,56 @@ $(document).ready(function() {
     console.log("blue:"+ x + " green:"+ y + " red:"+ z + " yellow:"+ k)
 
     var audio = new Audio("http://www.ibiblio.org/pub/multimedia/pc-sounds/chimes.wav");
+    var audioL = new Audio("https://www.freespecialeffects.co.uk/soundfx/computers/bleep_04.wav");
 
     // reset
     function reset() {
-        var x = Math.floor(Math.random()*11+1); //blue
-        var y = Math.floor(Math.random()*11+1); //green
-        var z = Math.floor(Math.random()*11+1); //red
-        var k = Math.floor(Math.random()*11+1); //yellow
-        var computerRandom = Math.floor(Math.random()* 101 + 19);
+        x = Math.floor(Math.random()*11+1); //blue
+        y = Math.floor(Math.random()*11+1); //green
+        z = Math.floor(Math.random()*11+1); //red
+        k = Math.floor(Math.random()*11+1); //yellow
+        computerRandom = Math.floor(Math.random()* 101 + 19);
+        $("#computerRandom").text(computerRandom);
+        yourTotal = 0;
+        console.log("======= New Game ==========");
+        console.log(x,y,z,k,computerRandom);
+    }
+    // console.log("testing reset: " + x,y,z,k,computerRandom, yourTotal); // checking if my reset works
 
-    };
+    // !! WIN  !!
+    function win() {
+        wins++;
+        audio.play();
+        $("#scoreW").text(wins);
+        reset();
+    }
+    console.log("testing win: " + wins);
 
-    // Each crystal will have a random number between 1 and 12
+    // !! Loser !!
+    function lose() {
+        losses++;
+        audioL.play();
+        $("#scoreL").text(losses);
+        reset();
+    }
+    console.log("testing lose: " + losses);
+
+
+    // // // 
     $("#blue").on("click", function() {
         console.log("blue gem " + x);
         yourTotal = yourTotal + x;  // Display value of each crystal in score box area
         $("#score").text(yourTotal);    
         
-        if (yourTotal === computerRandom) {
+        if (yourTotal == computerRandom) {
             $("#status").text("YOU WIN!!");
-            audio.play();
-            Wins++;
-            $("#wins").append(Wins++);
+            win();
+            reset();
+        }
+
+        else if (yourTotal > computerRandom) {
+            $("#status").text("!!YOU LOSE!!");
+            lose();
             reset();
         }
     }); 
@@ -53,11 +81,14 @@ $(document).ready(function() {
         yourTotal = yourTotal + y;  // Display value of each crystal in score box area
         $("#score").text(yourTotal);
 
-        if (yourTotal === computerRandom) {
+        if (yourTotal == computerRandom) {
             $("#status").text("YOU WIN!!");
-            audio.play();
-            Wins++;
-            $("#wins").append(Wins++);
+            win();
+            reset();
+        }
+        else if (yourTotal > computerRandom) {
+            $("#status").text("!!YOU LOSE!!");
+            lose();
             reset();
         }
     });
@@ -67,11 +98,14 @@ $(document).ready(function() {
         yourTotal = yourTotal + z;  // Display value of each crystal in score box area
         $("#score").text(yourTotal);
 
-        if (yourTotal === computerRandom) {
+        if (yourTotal == computerRandom) {
             $("#status").text("YOU WIN!!");
-            audio.play();
-            Wins++;
-            $("#wins").append(Wins++);
+            win();
+            reset();
+        }
+        else if (yourTotal > computerRandom) {
+            $("#status").text("!!YOU LOSE!!");
+            lose();
             reset();
         }
     });
@@ -81,20 +115,19 @@ $(document).ready(function() {
         yourTotal = yourTotal + k;  // Display value of each crystal in score box area
         $("#score").text(yourTotal);
 
-        if (yourTotal === computerRandom) {
-            $("#status").text("YOU WIN!!");
-            audio.play();
-            Wins++;
-            $("#wins").append(Wins++)
+        if (yourTotal == computerRandom) {
+            $("#status").text("!!YOU WIN!!");
+            win();
             reset();
+        } 
+        
+        else if (yourTotal > computerRandom) {
+            $("#status").text("!!YOU LOSE!!");
+            lose();
+            reset();           
         }
+        
     }); 
-
-    
-
-    
-    ////////I still have to work out some bugs which I am still trying to figure out./////////  i wish I had more time. Still working on it though...
-
     
 })
 
